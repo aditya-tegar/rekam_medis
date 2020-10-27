@@ -43,3 +43,6 @@ Route::resource('pasien', 'PasienController');
 
 //user
 Route::resource('user', 'UserController');
+
+//Laporan
+// Route::get('laporan', 'PasienController@laporan')->name('laporan');

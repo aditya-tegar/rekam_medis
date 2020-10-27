@@ -36,4 +36,9 @@ class PasienController extends Controller
         $pasien->delete();
         return redirect()->route('pasien.index')->with('status', 'Pasien deleted!!!')->with('success', true);
     }
+
+    // public function laporan() {
+    //     $pasien = Pasien::with(['pasien'])->get();
+    //     return view('pasien.index', compact('pasien'));
+    // }
 }
