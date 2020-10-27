@@ -140,7 +140,7 @@
                             @enderror
                         </div>
                     </div> 
-
+                    @if(Auth::user()->role->name == "Dokter")
                     <div class="form-group row">
                         <label for="diagnosa" class="col-md-3 col-form-label text-md-right">{{ __('diagnosa') }}</label>
 
@@ -154,7 +154,7 @@
                             @enderror
                         </div>
                     </div> 
-                    
+                    @endif
 
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4 ">
