@@ -1,0 +1,41 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreatePasienTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('pasien', function (Blueprint $table) {
+            $table->id();
+            $table->string('kode_rekam_medis', 30);
+            $table->string('nama_pasien', 30);
+            $table->string('tempat', 50);
+            $table->date('tanggal_lahir'); 
+            $table->string('alamat', 12);
+            $table->string('no_telepon', 30);
+            $table->string('status_perkawinan', 30);
+            $table->string('agama', 5);
+            $table->string('kewarganegaraan', 30);
+            $table->string('diagnosa', 200);
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('pasien');
+    }
+}
