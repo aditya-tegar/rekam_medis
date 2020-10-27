@@ -18,10 +18,12 @@
 		        <h3 class="card-title">Daftar Pasien</h3>
 		    </div>
 		    <div class="card-body">
-		    	<!-- @include('partial.alert') -->
+				<!-- @include('partial.alert') -->
+				@if(Auth::user()->role->id == 2)
 		    	<p>
 		    		<a href="{{ route('pasien.create') }}" class="btn btn-primary">Tambah Data Pasien</a>
-		    	</p>
+				</p>
+				@endif
 		    	<table class="table" id="example1">
 		    		<thead>
 		    			<tr>

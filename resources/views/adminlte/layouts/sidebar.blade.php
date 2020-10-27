@@ -19,7 +19,7 @@
                         <p> Visi dan Misi </p>
                     </a>
                 </li>
-                
+                @if(Auth::user()->role->id == 2 || Auth::id() == 3);
                 <li class="nav-header">MANAGEMENT DATA REKAM MEDIS</li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
@@ -29,28 +29,39 @@
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
+                    
                     <ul class="nav nav-treeview">
+                        @if(Auth::user()->role->id == 2);
                         <li class="nav-item">
                             <a href="{{ route('pasien.index') }}" class="nav-link">
                                 <i class="fa fa-file-alt"></i>
                                 <p> Data Pasien</p>
                             </a>
                         </li>
+                        @endif
+
+                        @if(Auth::user()->role->id == 3);
                         <li class="nav-item">
                             <a href="{{ route('pasien.index') }}" class="nav-link">
                                 <i class="fa fa-file-alt"></i>
                                 <p> Diagnosa Pasien </p>
                             </a>
                         </li>
+                        @endif
+                    
+                        @if(Auth::user()->role->id == 2);
                         <li class="nav-item">
                             <a href="{{ route('pasien.index') }}" class="nav-link">
                                 <i class="fa fa-file-alt"></i>
                                 <p> Laporan Rekam Medis</p>
                             </a>
                         </li>
+                        @endif
                     </ul>
                 </li>
-                {{-- @if(Auth::user()->role_id == 1) --}}
+                @endif
+
+                @if(Auth::user()->role->id == 1);
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-edit"></i>
@@ -68,7 +79,7 @@
                         </li>
                     </ul>
                 </li>
-                {{-- @endif --}}
+                @endif
 
             </ul>
         </nav>
