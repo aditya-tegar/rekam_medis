@@ -4,17 +4,16 @@
 
 @section('content')
 <div class="card">
-    <div class="card-header">
+    {{-- <div class="card-header">
         <h3 class="card-title">Status</h3>
-    </div>
+    </div> --}}
     <div class="card-body">
         @if (session('status'))
         <div class="alert alert-success" role="alert">
             {{ session('status') }}
         </div>
         @endif
-
-        {{ __('You are logged in!') }}
+    <h3>Selamat Datang di Sistem Informasi Rekam Medis Klinik Darnelis</h3>
     </div>
 </div>
 @endsection

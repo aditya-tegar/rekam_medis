@@ -2,8 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ route('home') }}" class="brand-link d-flex align-items-center justify-content-center">
-        <span class="brand-text font-weight-light"><i class="fab fa-laravel fa-2x"></i>
-            {{ config('app.name', 'Laravel') }}</span>
+        <span class="brand-text font-weight-light"><img src="{{ asset('/img/logo1.jpg') }}" alt="Logo" style="width: 200px;">
     </a>
 
     <!-- Sidebar -->
