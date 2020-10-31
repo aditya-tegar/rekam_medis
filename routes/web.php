@@ -45,4 +45,4 @@ Route::resource('pasien', 'PasienController');
 Route::resource('user', 'UserController');
 
 //Laporan
-// Route::get('laporan', 'PasienController@laporan')->name('laporan');
+Route::get('laporan', 'PasienController@laporan')->name('laporan');

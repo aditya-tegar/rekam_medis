@@ -37,8 +37,15 @@ class PasienController extends Controller
         return redirect()->route('pasien.index')->with('status', 'Pasien deleted!!!')->with('success', true);
     }
 
-    // public function laporan() {
-    //     $pasien = Pasien::with(['pasien'])->get();
-    //     return view('pasien.index', compact('pasien'));
-    // }
+    public function laporan(Request $request) {
+        $pasien = Pasien::all();
+        $tanggal_awal = null;
+        $now = \Carbon\Carbon::now();
+        if(!empty($request->tanggal_awal)){
+            $now = $request->tanggal_awal;
+            $tanggal_awal = $request->tanggal_awal;
+        }
+        $pasien = Pasien::whereDate('created_at', $now)->get();
+        return view('laporan.index', compact('pasien', 'tanggal_awal'));
+    }
 }

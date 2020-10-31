@@ -51,7 +51,7 @@
                     
                         @if(Auth::user()->role->id == 2);
                         <li class="nav-item">
-                            <a href="{{ route('pasien.index') }}" class="nav-link">
+                            <a href="{{ route('laporan') }}" class="nav-link">
                                 <i class="fa fa-file-alt"></i>
                                 <p> Laporan Rekam Medis</p>
                             </a>
