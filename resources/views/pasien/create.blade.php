@@ -1,6 +1,6 @@
 @extends('adminlte.layouts.app')
 
-@section('title', 'Buat Data Warga')
+@section('title', 'Buat Data Pasien')
 
 {{-- Custom CSS --}}
 @push('css')
@@ -17,7 +17,7 @@
 		    	<form action="{{ route('pasien.store') }}" method="POST">
 		    		@csrf
                     <div class="form-group row">
-                        <label for="kode_rekam_medis" class="col-md-3 col-form-label text-md-right">{{ __('Kode Rekam Medis') }}</label>
+                        <label for="kode_rekam_medis" class="col-md-3 col-form-label text-md-right">{{ __('Nomor Rekam Medis') }}</label>
 
                         <div class="col-md-7">
                             <input id="kode_rekam_medis" type="text" class="form-control @error('kode_rekam_medis') is-invalid @enderror" name="kode_rekam_medis" value="{{ old('kode_rekam_medis') }}" required autocomplete="kode_rekam_medis" autofocus>

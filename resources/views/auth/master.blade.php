@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>@yield('title')</title>
+  <title>Sistem Informasi Rekam Medis</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,7 +23,9 @@
 <body class="hold-transition login-page">
   <div class="login-box">
     <div class="login-logo">
-      <a href="#"><b>Sistem Informasi Rekam Medis Klinik Darnelis</b></a>
+    <a href="{{ route('home') }}" class="brand-link d-flex align-items-center justify-content-center">
+        <span class="brand-text font-weight-light"><img src="{{ ('../../images/logo.jpg') }}" width="200" height="100">
+    </a>
     </div>
     <!-- /.login-logo -->
     <div class="card">

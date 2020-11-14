@@ -28,7 +28,7 @@
 				<div class="form-group row">
 					<div class="col-lg-8">
 						<form action="/laporan">
-						<div class="col-lg-6">
+						<div class="col-lg-8">
 							<label for="tanggal_artikel" class="col-md-3 col-form-label text-md-left">{{ __('Tanggal') }}</label>
 							<input id="tanggal_artikel" type="date" class="form-control @error('tanggal_artikel') is-invalid @enderror" name="tanggal_awal" value="{{ $tanggal_awal }}" required autocomplete="tanggal_artikel" autofocus>
 						</div>
@@ -42,7 +42,7 @@
 		    		<thead>
 		    			<tr>
 		    				{{-- <th>Tanggal</th> --}}
-		    				<th>Kode Rekam Medis</th>
+		    				<th>Nomor Rekam Medis</th>
 		    				<th>Nama Pasien</th>
 		    				{{-- <th>Tempat Lahir</th> --}}
 							{{-- <th>Tanggal Lahir</th> --}}
@@ -98,7 +98,7 @@
       $("#example1").DataTable({
       	dom: 'Bfrtip',
         buttons: [
-        'excel', 'print'
+        'print'
         ],
         "columnDefs": [
             { "width": "10%", "targets": -1 }

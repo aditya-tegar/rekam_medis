@@ -4,10 +4,10 @@
 @section('title', "Klinik Darnelis - Login")
 
 @section('auth-content')
-<p class="login-box-msg">Sign in to start your session</p>
+<p class="login-box-msg">Masuk Sebagai.</p>
 @if ($errors->any())
 <div class="alert alert-danger">
-    <i class="icon fas fa-ban"></i> Invalid Email or Password
+    <i class="icon fas fa-ban"></i> Maaf, Salah ya.
 </div>
 @endif
 <form action="{{ route('login') }}" method="POST">

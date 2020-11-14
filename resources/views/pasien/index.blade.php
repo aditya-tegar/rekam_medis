@@ -28,7 +28,7 @@
 		    		<thead>
 		    			<tr>
 		    				{{-- <th>Tanggal</th> --}}
-		    				<th>Kode Rekam Medis</th>
+		    				<th>Nomor Rekam Medis</th>
 		    				<th>Nama Pasien</th>
 		    				<th>Tempat Lahir</th>
 							<th>Tanggal Lahir</th>
@@ -79,17 +79,5 @@
 <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
 
-<script>
-    $(function () {
-      $("#example1").DataTable({
-      	dom: 'Bfrtip',
-        buttons: [
-        'excel', 'print'
-        ],
-        "columnDefs": [
-            { "width": "10%", "targets": -1 }
-        ]
-      });
-    });
-</script>
+
 @endpush

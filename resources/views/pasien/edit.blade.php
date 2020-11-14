@@ -26,7 +26,7 @@ $disabled = null;
                     {{ method_field('PUT') }}
 		    		@csrf
                     <div class="form-group row">
-                        <label for="kode_rekam_medis" class="col-md-3 col-form-label text-md-right">{{ __('kode Rekam Medis') }}</label>
+                        <label for="kode_rekam_medis" class="col-md-3 col-form-label text-md-right">{{ __('Nomor Rekam Medis') }}</label>
 
                         <div class="col-md-7">
                             <input id="kode_rekam_medis" type="text" class="form-control @error('kode_rekam_medis') is-invalid @enderror" name="kode_rekam_medis" value="{{ $pasien->kode_rekam_medis }}" required {{$disabled}} autocomplete="kode_rekam_medis" autofocus>
@@ -150,7 +150,6 @@ $disabled = null;
                             @enderror
                         </div>
                     </div>
-
                     <div class="form-group row">
                         <label for="diagnosa" class="col-md-3 col-form-label text-md-right">{{ __('diagnosa') }}</label>
 
