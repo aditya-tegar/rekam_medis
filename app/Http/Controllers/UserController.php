@@ -39,7 +39,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nip'=>'required|unique:users,nip',
+            'email'=>'required|unique:users,email'
+        ]);
         User::create([
+            'nip' => $request->nip,
             'name' => $request->name,
             'email' => $request->email,
             'role_id' => $request->role_id,
@@ -83,6 +88,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->update([
+            'nip' => $request->nip,
             'name' => $request->name,
             'email' => $request->email,
             'role_id' => $request->role_id,

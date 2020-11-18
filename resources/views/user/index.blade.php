@@ -24,6 +24,7 @@
                 <table class="table" id="example1">
                     <thead>
                         <tr>
+                        <th scope="col">NIP</th>
                         <th scope="col">Nama</th>
                         <th scope="col">Email</th>
                         <th scope="col">Role</th>
@@ -33,6 +34,7 @@
                     <tbody>
                         @foreach ($user as $us)
                             <tr>
+                                <td>{{ $us->nip }}</td>
                                 <td>{{ $us->name }}</td>
                                 <td>{{ $us->email }}</td>
                                 <td>{{ $us->role->name }}</td>
