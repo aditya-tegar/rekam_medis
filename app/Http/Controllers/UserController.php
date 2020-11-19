@@ -39,7 +39,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nip'=>'required|unique:users,nip'
+        ]);
+
         User::create([
+            'nip' => $request->nip,
             'name' => $request->name,
             'email' => $request->email,
             'role_id' => $request->role_id,
@@ -81,14 +86,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
-        $user->update([
-            'name' => $request->name,
-            'email' => $request->email,
-            'role_id' => $request->role_id,
-            'password' => Hash::make($request->password)
-        ]);
-
+        // $user = User::find($id);
+        // $user->update([
+        //     'nip' => $request->nip,
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        //     'role_id' => $request->role_id,
+        //     'password' => Hash::make($request->password)
+        // ]);
+        $user->update($request->all());
         return redirect()->route('user.index')->with('status', 'User updated!')->with('success', true);
     }
 

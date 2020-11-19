@@ -150,6 +150,8 @@ $disabled = null;
                             @enderror
                         </div>
                     </div>
+
+                    @if(Auth::user()->role_id == 3)
                     <div class="form-group row">
                         <label for="diagnosa" class="col-md-3 col-form-label text-md-right">{{ __('diagnosa') }}</label>
 
@@ -163,6 +165,7 @@ $disabled = null;
                             @enderror
                         </div>
                     </div>
+                    @endif
 
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-3">

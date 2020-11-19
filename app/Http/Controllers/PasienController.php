@@ -31,10 +31,10 @@ class PasienController extends Controller
 
     public function update(Request $request, Pasien $pasien) {
 
-        $validatedData = $request->validate([
-            'kode_rekam_medis' => 'required|unique:pasien,kode_rekam_medis',
-            // 'body' => 'required',
-        ]);
+        // $validatedData = $request->validate([
+        //     'kode_rekam_medis' => 'required|unique:pasien,kode_rekam_medis',
+        //     // 'body' => 'required',
+        // ]);
         
         $pasien->update($request->all());
         return redirect()->route('pasien.index')->with('status', 'Pasien updated!!!')->with('success', true);

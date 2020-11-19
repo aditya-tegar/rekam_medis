@@ -25,6 +25,7 @@ class UserSeeder extends Seeder
         $role->save();        
         
         $user = new User();
+        $user->nip = "111111";
         $user->name = "Admin";
         $user->email = "admin@gmail.com";
         $user->password = bcrypt("rahasia");
@@ -32,6 +33,7 @@ class UserSeeder extends Seeder
         $user->save();
         
         $user = new User();
+        $user->nip = "222222";
         $user->name = "Perawat";
         $user->email = "perawat@gmail.com";
         $user->password = bcrypt("rahasia");
@@ -39,6 +41,7 @@ class UserSeeder extends Seeder
         $user->save();
 
         $user = new User();
+        $user->nip = "333333";
         $user->name = "Dokter";
         $user->email = "dokter@gmail.com";
         $user->password = bcrypt("rahasia");
