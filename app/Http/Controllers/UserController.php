@@ -40,9 +40,15 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+<<<<<<< HEAD
             'nip'=>'required|unique:users,nip'
         ]);
 
+=======
+            'nip'=>'required|unique:users,nip',
+            'email'=>'required|unique:users,email'
+        ]);
+>>>>>>> 8cdac433ed64aa38572a69db6515b9ee7a4fa654
         User::create([
             'nip' => $request->nip,
             'name' => $request->name,
@@ -86,6 +92,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+<<<<<<< HEAD
         // $user = User::find($id);
         // $user->update([
         //     'nip' => $request->nip,
@@ -95,6 +102,17 @@ class UserController extends Controller
         //     'password' => Hash::make($request->password)
         // ]);
         $user->update($request->all());
+=======
+        $user = User::find($id);
+        $user->update([
+            'nip' => $request->nip,
+            'name' => $request->name,
+            'email' => $request->email,
+            'role_id' => $request->role_id,
+            'password' => Hash::make($request->password)
+        ]);
+
+>>>>>>> 8cdac433ed64aa38572a69db6515b9ee7a4fa654
         return redirect()->route('user.index')->with('status', 'User updated!')->with('success', true);
     }
 
