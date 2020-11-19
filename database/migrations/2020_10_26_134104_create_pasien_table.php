@@ -15,7 +15,7 @@ class CreatePasienTable extends Migration
     {
         Schema::create('pasien', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_rekam_medis', 30);
+            $table->string('kode_rekam_medis')->unique();
             $table->string('nama_pasien', 30);
             $table->string('tempat', 50);
             $table->date('tanggal_lahir'); 
@@ -25,6 +25,7 @@ class CreatePasienTable extends Migration
             $table->string('agama', 15);
             $table->string('kewarganegaraan', 30);
             $table->string('diagnosa', 200)->nullable();
+            $table->string('obat', 200)->nullable();
             $table->timestamps();
         });
     }

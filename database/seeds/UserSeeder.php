@@ -22,7 +22,11 @@ class UserSeeder extends Seeder
         
         $role = new Role();
         $role->name = "Dokter";
-        $role->save();        
+        $role->save();
+        
+        $role = new Role();
+        $role->name = "Farmasi";
+        $role->save();
         
         $user = new User();
         $user->nip = "111111";
@@ -46,6 +50,14 @@ class UserSeeder extends Seeder
         $user->email = "dokter@gmail.com";
         $user->password = bcrypt("rahasia");
         $user->role_id = 3;
+        $user->save();
+
+        $user = new User();
+        $user->nip = "444444";
+        $user->name = "Farmasi";
+        $user->email = "farmasi@gmail.com";
+        $user->password = bcrypt("rahasia");
+        $user->role_id = 4;
         $user->save();
     }
 }

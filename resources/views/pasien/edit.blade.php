@@ -167,6 +167,22 @@ $disabled = null;
                     </div>
                     @endif
 
+                    @if(Auth::user()->role_id == 3)
+                    <div class="form-group row">
+                        <label for="obat" class="col-md-3 col-form-label text-md-right">{{ __('Obat') }}</label>
+
+                        <div class="col-md-7">
+                            <input id="obat" type="text" class="form-control @error('obat') is-invalid @enderror" name="obat" value="{{ $pasien->obat }}" required autocomplete="obat" autofocus>
+
+                            @error('obat')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    @endif
+
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-3">
                             <button type="submit" class="btn btn-primary">

@@ -27,11 +27,8 @@
                         <label for="nip" class="col-md-4 col-form-label text-md-right">{{ __('nip') }}</label>
 
                         <div class="col-md-6">
-<<<<<<< HEAD
-                            <input id="nip" type="text" class="form-control @error('nip') is-invalid @enderror" name="nip" value="{{ $user->nip }}" required autocomplete="nip" autofocus>
-=======
+
                             <input id="nip" type="number" class="form-control @error('nip') is-invalid @enderror" name="nip" value="{{ $user->nip }}" required autocomplete="nip" autofocus>
->>>>>>> 8cdac433ed64aa38572a69db6515b9ee7a4fa654
 
                             @error('nip')
                                 <span class="invalid-feedback" role="alert">

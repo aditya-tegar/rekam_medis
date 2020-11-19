@@ -1,6 +1,6 @@
 @extends('adminlte.layouts.app')
 
-@section('title', 'Daftar Pasien')
+@section('title', 'Daftar Obat')
 
 {{-- Custom CSS --}}
 @push('css')
@@ -15,48 +15,29 @@
 	<div class="col-md-12">
 		<div class="card">
 		    <div class="card-header">
-		        <h3 class="card-title">Daftar Pasien</h3>
+		        <h3 class="card-title">Daftar Obat</h3>
 		    </div>
 		    <div class="card-body">
-				<!-- @include('partial.alert') -->
-				@if(Auth::user()->role->id == 2)
 		    	<p>
-		    		<a href="{{ route('pasien.create') }}" class="btn btn-primary">Tambah Data Pasien</a>
+		    		<a href="{{ route('farmasi.create') }}" class="btn btn-primary">Tambah Data Obat</a>
 				</p>
-				@endif
 		    	<table class="table" id="example1">
 		    		<thead>
 		    			<tr>
 		    				{{-- <th>Tanggal</th> --}}
-		    				<th>Nomor Rekam Medis</th>
-		    				<th>Nama Pasien</th>
-		    				<th>Tempat Lahir</th>
-							<th>Tanggal Lahir</th>
-							<th>alamat</th>
-							<th>No Telepon</th>
-							<th>Status Perkawinan</th>
-							<th>Agama</th>
-							<th>Kewarganegaraan</th>
-							<th>Diagnosa</th>
-							<th>Obat</th>
+		    				<th>Nomor Registrasi</th>
+		    				<th>Nama Obat</th>
+		    				<th>Jenis Obat</th>
 							<th>Opsi</th>
 		    			</tr>
 		    		</thead>
 		    		<tbody>
-		    			@foreach($pasien as $data)
+		    			@foreach($farmasi as $data)
 		    			<tr>
-		    				<td>{{ $data->kode_rekam_medis }}</td>
-		    				<td>{{ $data->nama_pasien }}</td>
-		    				<td>{{ $data->tempat }}</td>
-		    				<td>{{ $data->tanggal_lahir }}</td>
-							<td>{{ $data->alamat }}</td>
-							<td>{{ $data->no_telepon }}</td>
-							<td>{{ $data->status_perkawinan }}</td>
-							<td>{{ $data->agama }}</td>
-							<td>{{ $data->kewarganegaraan }}</td>
-							<td>{{ $data->diagnosa }}</td>
-							<td>{{ $data->obat }}</td>
-		    				<td>@include('partial.action', ['data' => $data, 'route'=>'pasien'])</td>
+		    				<td>{{ $data->no_reg }}</td>
+		    				<td>{{ $data->nama_obat }}</td>
+		    				<td>{{ $data->jenis_obat }}</td>
+		    				<td>@include('partial.action', ['data' => $data, 'route'=>'farmasi'])</td>
 		    			</tr>
 		    			@endforeach
 		    		</tbody>

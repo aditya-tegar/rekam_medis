@@ -40,6 +40,17 @@ Route::get('/crud/edit', function () {
 //pasien
 Route::resource('pasien', 'PasienController');
 
+//farmasi
+Route::resource('farmasi', 'FarmasiController');
+
+//dokter
+Route::resource('dokter', 'DokterController');
+
+//perawat
+Route::resource('perawat', 'PerawatController');
+
+//perawat
+Route::resource('jadwal', 'JadwalController');
 
 //user
 Route::resource('user', 'UserController');

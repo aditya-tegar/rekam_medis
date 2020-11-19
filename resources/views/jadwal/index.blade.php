@@ -1,6 +1,6 @@
 @extends('adminlte.layouts.app')
 
-@section('title', 'Daftar Pasien')
+@section('title', 'Daftar Jadwal Praktek')
 
 {{-- Custom CSS --}}
 @push('css')
@@ -15,48 +15,28 @@
 	<div class="col-md-12">
 		<div class="card">
 		    <div class="card-header">
-		        <h3 class="card-title">Daftar Pasien</h3>
+		        <h3 class="card-title">Daftar Jadwal Praktek</h3>
 		    </div>
 		    <div class="card-body">
-				<!-- @include('partial.alert') -->
-				@if(Auth::user()->role->id == 2)
 		    	<p>
-		    		<a href="{{ route('pasien.create') }}" class="btn btn-primary">Tambah Data Pasien</a>
+		    		<a href="{{ route('jadwal.create') }}" class="btn btn-primary">Tambah Jadwal Praktek</a>
 				</p>
-				@endif
 		    	<table class="table" id="example1">
 		    		<thead>
 		    			<tr>
-		    				{{-- <th>Tanggal</th> --}}
-		    				<th>Nomor Rekam Medis</th>
-		    				<th>Nama Pasien</th>
-		    				<th>Tempat Lahir</th>
-							<th>Tanggal Lahir</th>
-							<th>alamat</th>
-							<th>No Telepon</th>
-							<th>Status Perkawinan</th>
-							<th>Agama</th>
-							<th>Kewarganegaraan</th>
-							<th>Diagnosa</th>
-							<th>Obat</th>
+							<th>Nama Dokter</th>
+							<th>Hari Praktek</th>
+							<th>Jam Praktek</th>
 							<th>Opsi</th>
 		    			</tr>
 		    		</thead>
 		    		<tbody>
-		    			@foreach($pasien as $data)
+		    			@foreach($jadwal as $data)
 		    			<tr>
-		    				<td>{{ $data->kode_rekam_medis }}</td>
-		    				<td>{{ $data->nama_pasien }}</td>
-		    				<td>{{ $data->tempat }}</td>
-		    				<td>{{ $data->tanggal_lahir }}</td>
-							<td>{{ $data->alamat }}</td>
-							<td>{{ $data->no_telepon }}</td>
-							<td>{{ $data->status_perkawinan }}</td>
-							<td>{{ $data->agama }}</td>
-							<td>{{ $data->kewarganegaraan }}</td>
-							<td>{{ $data->diagnosa }}</td>
-							<td>{{ $data->obat }}</td>
-		    				<td>@include('partial.action', ['data' => $data, 'route'=>'pasien'])</td>
+		    				<td>{{ $data->nama_dokter }}</td>
+							<td>{{ $data->hari_praktek }}</td>
+							<td>{{ $data->jam_praktek }} s.d Selesai</td>
+		    				<td>@include('partial.action', ['data' => $data, 'route'=>'jadwal'])</td>
 		    			</tr>
 		    			@endforeach
 		    		</tbody>
@@ -80,6 +60,4 @@
 <script src="{{ asset('assets/plugins/pdfmake/vfs_fonts.js') }}"></script>
 <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
-
-
 @endpush

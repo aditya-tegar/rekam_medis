@@ -18,7 +18,31 @@
                         <p> Visi dan Misi </p>
                     </a>
                 </li>
-                @if(Auth::user()->role->id == 2 || Auth::id() == 3);
+                @if(Auth::user()->role->id == 4);
+                <li class="nav-header">MANAGEMENT FARMASI</li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-edit"></i>
+                        <p>
+                            DATA FARMASI
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    
+                    <ul class="nav nav-treeview">
+                        @if(Auth::user()->role->id == 4);
+                        <li class="nav-item">
+                            <a href="{{ route('farmasi.index') }}" class="nav-link">
+                                <i class="fa fa-file-alt"></i>
+                                <p> Data Obat</p>
+                            </a>
+                        </li>
+                        @endif
+                    </ul>
+                </li>
+                @endif
+
+                @if(Auth::user()->role->id == 2 || Auth::id() == 3)
                 <li class="nav-header">MANAGEMENT DATA REKAM MEDIS</li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
@@ -29,8 +53,8 @@
                         </p>
                     </a>
                     
-                    <ul class="nav nav-treeview">
-                        @if(Auth::user()->role->id == 2);
+                 <ul class="nav nav-treeview">
+                        @if(Auth::user()->role->id == 2)
                         <li class="nav-item">
                             <a href="{{ route('pasien.index') }}" class="nav-link">
                                 <i class="fa fa-file-alt"></i>
@@ -48,7 +72,7 @@
                         </li>
                         @endif
                     
-                        @if(Auth::user()->role->id == 2);
+                        @if(Auth::user()->role->id == 2)
                         <li class="nav-item">
                             <a href="{{ route('laporan') }}" class="nav-link">
                                 <i class="fa fa-file-alt"></i>
@@ -77,6 +101,33 @@
                             </a>
                         </li>
                     </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('dokter.index') }}" class="nav-link">
+                                <i class="far fa-user nav-icon"></i>
+                                <p>Data Dokter</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('perawat.index') }}" class="nav-link">
+                                <i class="far fa-user nav-icon"></i>
+                                <p>Data Perawat</p>
+                            </a>
+                        </li>
+                    </ul>
+
+                    @if(Auth::user()->role->id == 1 || Auth::id() == 3)
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('jadwal.index') }}" class="nav-link">
+                                <i class="far fa-user nav-icon"></i>
+                                <p>Jadwal Praktek</p>
+                            </a>
+                        </li>
+                    </ul>
+                    @endif
                 </li>
                 @endif
 
