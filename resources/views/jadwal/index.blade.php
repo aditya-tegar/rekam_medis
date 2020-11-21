@@ -18,16 +18,20 @@
 		        <h3 class="card-title">Daftar Jadwal Praktek</h3>
 		    </div>
 		    <div class="card-body">
+				@if(Auth::user()->role->id == 1)
 		    	<p>
 		    		<a href="{{ route('jadwal.create') }}" class="btn btn-primary">Tambah Jadwal Praktek</a>
 				</p>
+				@endif
 		    	<table class="table" id="example1">
 		    		<thead>
 		    			<tr>
 							<th>Nama Dokter</th>
 							<th>Hari Praktek</th>
 							<th>Jam Praktek</th>
+							@if(Auth::user()->role->id == 1)
 							<th>Opsi</th>
+							@endif
 		    			</tr>
 		    		</thead>
 		    		<tbody>
@@ -36,7 +40,9 @@
 		    				<td>{{ $data->nama_dokter }}</td>
 							<td>{{ $data->hari_praktek }}</td>
 							<td>{{ $data->jam_praktek }} s.d Selesai</td>
-		    				<td>@include('partial.action', ['data' => $data, 'route'=>'jadwal'])</td>
+							@if(Auth::user()->role->id == 1)
+							<td>@include('partial.action', ['data' => $data, 'route'=>'jadwal'])</td>
+							@endif
 		    			</tr>
 		    			@endforeach
 		    		</tbody>

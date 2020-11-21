@@ -3,17 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Pasien;
+use App\Dokter;
 use Illuminate\Http\Request;
 
 class PasienController extends Controller
 {
     public function index() {
-        $pasien = Pasien::all();
-        return view('pasien.index', compact('pasien'));
+        $pasien = Pasien::with(['dokter'])->get();
+        return view('pasien.index', compact('pasien', 'dokter'));
     }
 
     public function create() {
-        return view('pasien.create');
+        $dokter = Dokter::all();
+        $pasien = Pasien::all();
+        return view('pasien.create', compact('dokter'));
     }
 
     public function store(Request $request) {
@@ -21,27 +24,27 @@ class PasienController extends Controller
             'kode_rekam_medis' => 'required|unique:pasien,kode_rekam_medis',
             // 'body' => 'required',
         ]);
-        pasien::create($request->all());
+        $dokter = Dokter::find($request->dokter);
+        
+        $pasien= Pasien::create($request->all());
+        // $pasien->dokter()->associate($dokter);
+        // $pasien->save();
+    
         return redirect()->route('pasien.index')->with('status', 'Pasien Stored!!!')->with('success', true);
     }
 
     public function edit(Pasien $pasien) {
-        return view('pasien.edit', compact('pasien'));
+        $dokter = Dokter::all();
+        return view('pasien.edit', compact('pasien', 'dokter'));
     }
 
     public function update(Request $request, Pasien $pasien) {
-
-        // $validatedData = $request->validate([
-        //     'kode_rekam_medis' => 'required|unique:pasien,kode_rekam_medis',
-        //     // 'body' => 'required',
-        // ]);
-        
         $pasien->update($request->all());
         return redirect()->route('pasien.index')->with('status', 'Pasien updated!!!')->with('success', true);
     }
 
     public function destroy(Pasien $pasien) {
-        // $member = Member::find($id);
+
         $pasien->delete();
         return redirect()->route('pasien.index')->with('status', 'Pasien deleted!!!')->with('success', true);
     }

@@ -11,4 +11,9 @@ class Dokter extends Model
     protected $fillable = [
         'nip', 'nama_dokter', 'alamat', 'no_telepon', 'email', 'gelar'
     ];
+
+    public function pasien()
+    {
+        return $this->hasMany('App\Pasien');
+    }
 }

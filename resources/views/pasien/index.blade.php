@@ -28,11 +28,12 @@
 		    		<thead>
 		    			<tr>
 		    				{{-- <th>Tanggal</th> --}}
-		    				<th>Nomor Rekam Medis</th>
+							<th>Nomor Rekam Medis</th>
+							<th>Nama Dokter</th>
 		    				<th>Nama Pasien</th>
 		    				<th>Tempat Lahir</th>
 							<th>Tanggal Lahir</th>
-							<th>alamat</th>
+							<th>Alamat</th>
 							<th>No Telepon</th>
 							<th>Status Perkawinan</th>
 							<th>Agama</th>
@@ -45,7 +46,9 @@
 		    		<tbody>
 		    			@foreach($pasien as $data)
 		    			<tr>
-		    				<td>{{ $data->kode_rekam_medis }}</td>
+							<td>{{ $data->kode_rekam_medis }}</td>
+							{{-- <td>{{ $data->dokter->nama_dokter }}</td> --}}
+						<td>{{$data->dokter->nama_dokter}}</td>
 		    				<td>{{ $data->nama_pasien }}</td>
 		    				<td>{{ $data->tempat }}</td>
 		    				<td>{{ $data->tanggal_lahir }}</td>

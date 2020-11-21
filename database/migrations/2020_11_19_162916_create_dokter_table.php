@@ -23,6 +23,11 @@ class CreateDokterTable extends Migration
             $table->string('gelar');
             $table->timestamps();
         });
+
+        Schema::table('pasien', function (Blueprint $table) {
+            $table->unsignedBigInteger('dokter_id')->nullable();
+            $table->foreign('dokter_id')->references('id')->on('pasien')->onUpdate('cascade');
+        });
     }
 
     /**

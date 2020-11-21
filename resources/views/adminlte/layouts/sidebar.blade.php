@@ -15,9 +15,26 @@
                 <li class="nav-item">
                     <a href="{{ route('home') }}" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p> Visi dan Misi </p>
+                        <p> Jadwal dan Visi & Misi </p>
                     </a>
+                    
+                    @if(Auth::user()->role->id == 1 || Auth::user()->role->id == 2 || Auth::user()->role->id == 3)
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('jadwal.index') }}" class="nav-link">
+                                <i class="far fa-user nav-icon"></i>
+                                <p>Jadwal Praktek</p>
+                            </a>
+                        </li>
+                    </ul>
+                    @endif
                 </li>
+
+                
+
+                    
+                
+
                 @if(Auth::user()->role->id == 4);
                 <li class="nav-header">MANAGEMENT FARMASI</li>
                 <li class="nav-item has-treeview">
@@ -41,6 +58,7 @@
                     </ul>
                 </li>
                 @endif
+                
 
                 @if(Auth::user()->role->id == 2 || Auth::id() == 3)
                 <li class="nav-header">MANAGEMENT DATA REKAM MEDIS</li>
@@ -84,7 +102,9 @@
                 </li>
                 @endif
 
-                @if(Auth::user()->role->id == 1);
+                
+
+                @if(Auth::user()->role->id == 1)
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-edit"></i>
@@ -118,19 +138,9 @@
                         </li>
                     </ul>
 
-                    @if(Auth::user()->role->id == 1 || Auth::id() == 3)
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('jadwal.index') }}" class="nav-link">
-                                <i class="far fa-user nav-icon"></i>
-                                <p>Jadwal Praktek</p>
-                            </a>
-                        </li>
-                    </ul>
-                    @endif
+                    
                 </li>
                 @endif
-
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

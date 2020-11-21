@@ -1,6 +1,6 @@
 @extends('adminlte.layouts.app')
 
-@section('title', 'Daftar Pasien')
+@section('title', 'Laporan Rekam Medis')
 
 {{-- Custom CSS --}}
 @push('css')
@@ -15,7 +15,7 @@
 	<div class="col-md-8">
 		<div class="card">
 		    <div class="card-header">
-		        <h3 class="card-title">Daftar Pasien</h3>
+		        <h3 class="card-title">Laporan Rekam Medis</h3>
 		    </div>
 		    <div class="card-body">
 				<!-- @include('partial.alert') -->
@@ -41,34 +41,21 @@
 		    	<table class="table" id="example1">
 		    		<thead>
 		    			<tr>
-		    				{{-- <th>Tanggal</th> --}}
-		    				<th>Nomor Rekam Medis</th>
+							<th>Nomor Rekam Medis</th>
+							<th>Nama Dokter</th>
 		    				<th>Nama Pasien</th>
-		    				{{-- <th>Tempat Lahir</th> --}}
-							{{-- <th>Tanggal Lahir</th> --}}
-							{{-- <th>alamat</th> --}}
-							{{-- <th>No Telepon</th> --}}
-							{{-- <th>Status Perkawinan</th> --}}
-							{{-- <th>Agama</th> --}}
-							{{-- <th>Kewarganegaraan</th> --}}
-							<th>diagnosa</th>
-							{{-- <th>Opsi</th> --}}
+							<th>Diagnosa</th>
+							<th>Obat</th>
 		    			</tr>
 		    		</thead>
 		    		<tbody>
 		    			@foreach($pasien as $data)
 		    			<tr>
-		    				<td>{{ $data->kode_rekam_medis }}</td>
+							<td>{{ $data->kode_rekam_medis }}</td>
+							<td>{{ $data->dokter->nama_dokter }}</td>
 		    				<td>{{ $data->nama_pasien }}</td>
-		    				{{-- <td>{{ $data->tempat }}</td> --}}
-		    				{{-- <td>{{ $data->tanggal_lahir }}</td> --}}
-							{{-- <td>{{ $data->alamat }}</td> --}}
-							{{-- <td>{{ $data->no_telepon }}</td> --}}
-							{{-- <td>{{ $data->status_perkawinan }}</td> --}}
-							{{-- <td>{{ $data->agama }}</td> --}}
-							{{-- <td>{{ $data->kewarganegaraan }}</td> --}}
 							<td>{{ $data->diagnosa }}</td>
-		    				{{-- <td>@include('partial.action', ['data' => $data, 'route'=>'pasien'])</td> --}}
+							<td>{{ $data->obat }}</td>
 		    			</tr>
 		    			@endforeach
 		    		</tbody>

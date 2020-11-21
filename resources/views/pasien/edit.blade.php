@@ -40,6 +40,27 @@ $disabled = null;
                     </div>
 
                     <div class="form-group row">
+                        <label for="nama_dokter" class="col-md-3 col-form-label text-md-right">{{ __('Nama Dokter') }}</label>
+
+                        <div class="col-md-7">
+                            <select class="form-control selec2bs4 @error('nama_dokter') is-invalid @enderror"
+                                style="width: 100%" name="dokter" required>
+                                <option disabled selected>Pilih</option>
+                                @foreach ($dokter as $data)
+                                    <option @if($pasien->dokter_id == $data->id) selected @endif value="{{ $data->id }}">
+                                        {{$data->nama_dokter}}
+                                    </option>         
+                                @endforeach
+                            </select>
+                            @error('nama_dokter')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
                         <label for="nama_pasien" class="col-md-3 col-form-label text-md-right">{{ __('Nama Pasien') }}</label>
 
                         <div class="col-md-7">
